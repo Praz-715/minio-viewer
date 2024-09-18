@@ -1,4 +1,4 @@
-# Menggunakan node versi LTS sebagai base image
+# Menggunakan Node versi LTS sebagai base image
 FROM node:18
 
 # Set working directory di dalam container
@@ -13,8 +13,14 @@ RUN npm install --production
 # Copy seluruh kode aplikasi
 COPY . .
 
-# Expose port yang digunakan aplikasi (port Express.js)
+# Expose port aplikasi (port Express.js)
 EXPOSE 3000
+
+# Set environment variables untuk koneksi MinIO (luar Docker)
+ENV MINIO_ENDPOINT=minio-server
+ENV MINIO_PORT=9000
+ENV MINIO_ACCESS_KEY=minio-user
+ENV MINIO_SECRET_KEY=minio-pass123
 
 # Jalankan aplikasi
 CMD ["node", "app.js"]
