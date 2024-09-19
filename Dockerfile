@@ -21,6 +21,7 @@ ENV MINIO_ENDPOINT=minio-server
 ENV MINIO_PORT=9000
 ENV MINIO_ACCESS_KEY=minio-user
 ENV MINIO_SECRET_KEY=minio-pass123
+ENV MINIO_USE_SSL=false
 
 # Jalankan aplikasi
 CMD ["node", "app.js"]
